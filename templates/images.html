@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>harrysmith.dev</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <section id="header">
+        <header>
+            <span class="image avatar"><img src="{{ url_for('static', filename='images/avatar.png') }}" alt="" /></span>
+            <h1 id="logo"><a href="#">Harry Smith</a></h1>
+            <p>University student with years of experience with websites (full-stack), discord bots and command line
+                programs.</p>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="/" class="active">Back</a></li>
+            </ul>
+        </nav>
+        <footer>
+            <ul class="icons">
+                <li><a href="https://discord.com/eneRu6K/" class="icon brands fa-discord"><span
+                            class="label">Discord</span></a></li>
+                <li><a href="https://github.com/hazzakak/" class="icon brands fa-github"><span
+                            class="label">Github</span></a></li>
+                <li><a href="mailto:harry@harrysmith.dev" class="icon solid fa-envelope"><span
+                            class="label">Email</span></a></li>
+            </ul>
+        </footer>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="container" style="margin-top:30px;">
+                <div class="box alt">
+                    <h2>Images</h2>
+                    {% if file_amount == 0 %}
+                    <h1 class="display-1 text-center">No images!</h1>
+                    <p class="lead text-center">
+                        Unfortunately, there are no public images at the moment.
+                    </p>
+                    {% endif %}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pg-blue justify-content-center">
+                            {% for page in paginator.iter_pages(left_current=20, right_current=20) %}
+                            <a href="/images/{{ page }}?pswdpin=0p;1043%%3CAJ832£LDOwdhf9" class="page-link">
+                                <button>{{ page }}</button></a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                    <div class="row gtr-50 gtr-uniform">
+                        {% for i in images %}
+                        <div class="col-4"><span class="image fit"><img src="/i/{{i.filename}}" alt="" /></span></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <ul class="copyright">
+                    <li>&copy;2022 Harry Smith. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
