@@ -5,7 +5,12 @@ import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
-import config
+from .config import pswd, api_key
+
+import pandas as pd
+import requests
+import io
+
 app = Flask(__name__)
 
 app.config["UPLOAD_FOLDER"] = "var/www/harrysmith.dev/v1/images"
@@ -39,7 +44,10 @@ def filename():
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    download = requests.get("").content
+    df = pd.read_csv(io.StringIO(download.decode('utf-8')))
+
+    return render_template('index.html', projects=df)
 
 
 def chunks(l, n):
@@ -50,7 +58,7 @@ def chunks(l, n):
 
 @app.route('/images/<page>', methods=['GET'])
 def view_images(page: int):
-    if request.args.get("pswdpin") != config.pswd:
+    if request.args.get("pswdpin") != pswd:
         return redirect(url_for("index"))
 
     images = Images.query.order_by(Images.created.desc()).paginate(
@@ -86,7 +94,7 @@ def api_image_upload():
     if request.method == "POST":
         image = request.files["api_image"]
         key = request.form.get("api_key")
-        if key == config.api_key:
+        if key == api_key:
             ext = image.filename.rsplit(".", 1)[1].lower()
             if ext not in [
                 "png",
