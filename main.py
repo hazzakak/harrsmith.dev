@@ -5,7 +5,7 @@ import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
-from .config import pswd, api_key
+from config import pswd, api_key
 
 import pandas as pd
 import requests
@@ -44,10 +44,12 @@ def filename():
 @app.route('/index')
 @app.route('/home')
 def index():
-    download = requests.get("https://github.com/hazzakak/harrsmith.dev/blob/master/projects.json").content
-    df = pd.read_csv(io.StringIO(download.decode('utf-8')), on_bad_lines='skip')
+    resp = requests.get(
+        "https://raw.githubusercontent.com/hazzakak/harrsmith.dev/master/projects.json")
+    data = json.loads(resp.text)
+    print(data['projects'])
 
-    return render_template('index.html', projects=df)
+    return render_template('index.html', projects=data)
 
 
 def chunks(l, n):
@@ -135,4 +137,4 @@ def api_image_upload():
 
 if __name__ == '__main__':
     db.create_all()
-    app.run()
+    app.run(debug=True)
