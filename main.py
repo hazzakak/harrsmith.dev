@@ -44,7 +44,7 @@ def filename():
 @app.route('/index')
 @app.route('/home')
 def index():
-    download = requests.get("").content
+    download = requests.get("https://github.com/hazzakak/harrsmith.dev/blob/master/projects.csv").content
     df = pd.read_csv(io.StringIO(download.decode('utf-8')))
 
     return render_template('index.html', projects=df)
