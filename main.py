@@ -1,13 +1,14 @@
 from datetime import datetime
 import json
 import os
-from random import random
+import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
+import config
 app = Flask(__name__)
 
-app.config["UPLOAD_FOLDER"] = "/static/images"
+app.config["UPLOAD_FOLDER"] = "var/www/harrysmith.dev/v1/images"
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
 db = SQLAlchemy(app)
@@ -49,7 +50,7 @@ def chunks(l, n):
 
 @app.route('/images/<page>', methods=['GET'])
 def view_images(page: int):
-    if request.args.get("pswdpin") != '0p;1043%<AJ832£LDOwdhf9':
+    if request.args.get("pswdpin") != config.pswd:
         return redirect(url_for("index"))
 
     images = Images.query.order_by(Images.created.desc()).paginate(
@@ -85,7 +86,7 @@ def api_image_upload():
     if request.method == "POST":
         image = request.files["api_image"]
         key = request.form.get("api_key")
-        if key == "29u2q98dhq2dq'2qd09q2u3d#2qdq209hdj":
+        if key == config.api_key:
             ext = image.filename.rsplit(".", 1)[1].lower()
             if ext not in [
                 "png",
@@ -126,4 +127,4 @@ def api_image_upload():
 
 if __name__ == '__main__':
     db.create_all()
-    app.run(debug=True)
+    app.run()
