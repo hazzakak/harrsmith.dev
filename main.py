@@ -13,7 +13,7 @@ import io
 
 app = Flask(__name__)
 
-app.config["UPLOAD_FOLDER"] = "var/www/harrysmith.dev/v1/images"
+app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
 db = SQLAlchemy(app)
