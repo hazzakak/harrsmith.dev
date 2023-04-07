@@ -5,7 +5,7 @@ import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
-from config import pswd, api_key
+from harrysmith.config import pswd, api_key
 
 import pandas as pd
 import requests
@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
 db = SQLAlchemy(app)
 
 
@@ -78,17 +78,18 @@ def view_images(page: int):
         file_amount=images.total,
         files_list=files_list,
         paginator=images,
-        images=images.items
+        images=images.items,
+        pswd=pswd
     )
 
 
 @app.route('/i/<fn>')
 def view_image(fn):
-    try:
-        filename2 = "images/" + fn
-        return send_file(filename2, attachment_filename=fn)
-    except:
-        return redirect(url_for("index"))
+    #try:
+    filename2 = "images/" + fn
+    return send_file(filename2)
+    #except:
+    #    return redirect(url_for("index"))
 
 
 @app.route("/api/v1.0/images/upload", methods=["POST"])
