@@ -57,7 +57,7 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pg-blue justify-content-center">
                             {% for page in paginator.iter_pages(left_current=20, right_current=20) %}
-                            <a href="/images/{{ page }}?pswdpin=0p;1043%%3CAJ832£LDOwdhf9" class="page-link">
+                            <a href="/images/{{ page }}?pswdpin={{ pswd }}" class="page-link">
                                 <button>{{ page }}</button></a></li>
                             {% endfor %}
                         </ul>
