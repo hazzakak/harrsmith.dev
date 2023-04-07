@@ -1,2 +1,4 @@
 config.py
 main.py
+/images
+utils/app.db
