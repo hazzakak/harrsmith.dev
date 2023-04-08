@@ -12,10 +12,16 @@ import requests
 import io
 
 app = Flask(__name__)
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith/images"
+if 'PRODUCTION' in os.environ:
+    app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
+else:
+    app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
+    
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
@@ -47,7 +53,6 @@ def index():
     resp = requests.get(
         "https://raw.githubusercontent.com/hazzakak/harrsmith.dev/master/projects.json")
     data = json.loads(resp.text)
-    print(data['projects'])
 
     return render_template('index.html', projects=data)
 

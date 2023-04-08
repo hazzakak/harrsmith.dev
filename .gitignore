@@ -3,3 +3,6 @@ main.py
 /images
 utils/app.db
 images/
+.pytest_cache/
+__pycache__/
+__pycache__/main.cpython-310.pyc
