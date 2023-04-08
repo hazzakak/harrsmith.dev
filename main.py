@@ -15,12 +15,15 @@ app = Flask(__name__)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 if 'PRODUCTION' in os.environ:
+    print(1)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
     app.config["UPLOAD_FOLDER"] = "/var/www/harrysmith/harrysmith/images"
 elif 'TEST' in os.environ:
+    print(2)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
     app.config["UPLOAD_FOLDER"] = "/var/www/harrysmith/harrysmith/images"
 else:
+    print(3)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
 
@@ -72,7 +75,7 @@ def chunks(l, n):
 
 @app.route('/images/<page>', methods=['GET'])
 def view_images(page: int):
-    if request.args.get("pswdpin") != os.environ["password_hs"]:
+    if request.args.get("pswdpin") != os.getenv("password_hs"):
         return redirect(url_for("index"))
 
     images = Images.query.order_by(Images.created.desc()).paginate(
@@ -91,7 +94,7 @@ def view_images(page: int):
         files_list=files_list,
         paginator=images,
         images=images.items,
-        pswd=os.environ["password_hs"]
+        pswd=os.getenv("password_hs")
     )
 
 
@@ -106,11 +109,11 @@ def view_image(fn):
 
 @app.route("/api/v1.0/images/upload", methods=["POST"])
 def api_image_upload():
-    print(os.environ["password_hs"])
+    print(os.getenv("password_hs"))
     if request.method == "POST":
         image = request.files["api_image"]
         key = request.form.get("api_key")
-        if key == os.environ["api_key_hs"]:
+        if key == os.getenv("api_key_hs"):
             ext = image.filename.rsplit(".", 1)[1].lower()
             if ext not in [
                 "png",
