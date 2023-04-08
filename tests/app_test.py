@@ -24,14 +24,15 @@ def test_index():
 def test_database():
     assert Path("utils/app.db").is_file()
 
-def test_images():
-    tester = app.test_client()
-    response = tester.get(f"/images/1?pswdpin={ os.environ.get('password_hs') }", content_type="html/text")
-
-    assert response.status_code == 200
-    assert b"Images" in response.data
-
 if 'TEST' not in os.environ:
+    def test_images():
+        tester = app.test_client()
+        response = tester.get(f"/images/1?pswdpin={ os.environ.get('password_hs') }", content_type="html/text")
+
+        assert response.status_code == 200
+        assert b"Images" in response.data
+
+
     def test_post_images():
         tester = app.test_client()
         rv = tester.post(
