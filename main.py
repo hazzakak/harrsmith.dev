@@ -16,9 +16,11 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 if 'PRODUCTION' in os.environ:
     app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
     from harrysmith.config import pswd, api_key
-else:
+elif 'DEVELOPMENT' in os.environ:
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
     from config import pswd, api_key
+else:
+    pass
     
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
