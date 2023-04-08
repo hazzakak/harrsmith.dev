@@ -15,6 +15,7 @@ permissions:
 env:
   password_hs: test
   api_key_hs: test2
+  TEST: True
 
 jobs:
   build:
