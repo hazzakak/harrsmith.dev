@@ -1,10 +1,11 @@
 import io
 import sys
 from pathlib import Path
+import sys
 
 import pytest
 import requests
-sys.path.append('..')
+sys.path.append('../')
 
 from main import app
 import config

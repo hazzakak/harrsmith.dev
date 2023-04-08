@@ -5,6 +5,7 @@ import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
+import sys
 
 import pandas as pd
 import requests
@@ -16,12 +17,11 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 if 'PRODUCTION' in os.environ:
     app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
     from harrysmith.config import pswd, api_key
-elif 'DEVELOPMENT' in os.environ:
+else:
+    sys.path.append('../')
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
     from config import pswd, api_key
-else:
-    pass
-    
+
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
