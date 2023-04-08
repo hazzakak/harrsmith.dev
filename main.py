@@ -111,7 +111,7 @@ def view_image(fn):
 
 @app.route("/api/v1.0/images/upload", methods=["POST"])
 def api_image_upload():
-    print(os.getenv("password_hs"))
+    print(os.getenv("api_key_hs"))
     if request.method == "POST":
         image = request.files["api_image"]
         key = request.form.get("api_key")
@@ -152,6 +152,14 @@ def api_image_upload():
             return Response(
                 response=json.dumps(response), status=200, mimetype="application/json"
             )
+        else:
+            response = {
+                "message": "INCORRECT API KEY"
+            }
+            return Response(
+                response=json.dumps(response), status=401, mimetype="application/json"
+            )
+
 
 
 if __name__ == '__main__':
