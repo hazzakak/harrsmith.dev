@@ -16,6 +16,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 if 'PRODUCTION' in os.environ:
     app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
+elif 'TEST' in os.environ:
+    app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith.dev/images"
 else:
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
 

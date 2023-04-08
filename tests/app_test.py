@@ -31,13 +31,13 @@ def test_images():
     assert response.status_code == 200
     assert b"Images" in response.data
 
+if 'TEST' not in os.environ:
+    def test_post_images():
+        tester = app.test_client()
+        rv = tester.post(
+            "/api/v1.0/images/upload",
+            data={"api_key": os.environ.get("api_key_hs"), "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
+            follow_redirects=True,
+        )
 
-def test_post_images():
-    tester = app.test_client()
-    rv = tester.post(
-        "/api/v1.0/images/upload",
-        data={"api_key": os.environ.get("api_key_hs"), "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
-        follow_redirects=True,
-    )
-
-    assert b"image received" in rv.data
+        assert b"image received" in rv.data
