@@ -1,0 +1,11 @@
+{"projects":
+    [
+        {"title": "Various University Projects (2021-2023)", "pic": "pic03.jpg", "link": "https://github.com/hazzakak", "desc":""},
+        {"title": "Software Developer @ Sonoran Software (2021-2022)", "pic": "pic04.png", "link": "#", "desc": "Worked as part of a team updating a Discord Bot that set SonoranCAD apart from competitors. Using version control software, and javascript."},
+        {"title": "LARoleplay (2022)", "pic": "pic02.png", "link": "https://laroleplay.com", "desc": "Landing page for a roleplay community which holds reporting functions, blog and profiles."},
+        {"title": "EcoPlay (2021)", "pic": "pic01.png", "link": "https://github.com/hazzakak/EcoPlay-Website", "desc": "An economy system which connects discord and a website to enable roleplay communities and other fun communities to have an economic system."},
+        {"title": "JBot Version 5 (2021)", "pic": "pic03.jpg", "link":"#", "desc": "The latest discord bot which moderates my discord server. Uses the most recent functionalities such as slash commands, forms and buttons."},
+        {"title": "Personal Website (2019)", "pic": "pic03.png", "link": "#", "desc": "My main testing hub, creating important functionalities such as image hosting, url shortening, user roles, blogs, and APIs."},
+        {"title": "SARP (2019)", "pic": "pic03.jpg", "link": "#", "desc": "Website and Discord bot combo, which connects the application website with discord. Syncing roles to acceptance status, posting messages, automatic staff roles via discord roles and much more"}
+    ]
+}
