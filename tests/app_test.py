@@ -1,14 +1,11 @@
 import io
+import os
 import sys
 from pathlib import Path
-import sys
-
 import pytest
-import requests
-sys.path.append('../')
 
+sys.path.append('../')
 from main import app
-import config
 
 @pytest.fixture
 def client():
@@ -25,11 +22,11 @@ def test_index():
     assert b"Harry Smith" in response.data
 
 def test_database():
-    assert Path("../utils/app.db").is_file()
+    assert Path("utils/app.db").is_file()
 
 def test_images():
     tester = app.test_client()
-    response = tester.get("/images/1?pswdpin=0p;1043%<AJ832£LD9nSuw%27Cjsh%3", content_type="html/text")
+    response = tester.get(f"/images/1?pswdpin={ os.environ.get('password_hs') }", content_type="html/text")
 
     assert response.status_code == 200
     assert b"Images" in response.data
@@ -39,7 +36,7 @@ def test_post_images():
     tester = app.test_client()
     rv = tester.post(
         "/api/v1.0/images/upload",
-        data={"api_key": config.api_key, "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
+        data={"api_key": os.environ.get("api_key_hs"), "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
         follow_redirects=True,
     )
 
