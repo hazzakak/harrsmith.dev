@@ -14,6 +14,8 @@ import io
 app = Flask(__name__)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+print(os.environ)
+
 if 'PRODUCTION' in os.environ:
     print(1)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
