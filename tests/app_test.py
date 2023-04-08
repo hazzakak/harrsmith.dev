@@ -22,7 +22,7 @@ def test_index():
     assert b"Harry Smith" in response.data
 
 def test_database():
-    assert Path("utils/app.db").is_file()
+    assert Path("utils/aaapp.db").is_file()
 
 if 'TEST' not in os.environ:
     def test_images():
