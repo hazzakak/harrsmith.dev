@@ -27,7 +27,7 @@ def test_database():
 if 'TEST' not in os.environ:
     def test_images():
         tester = app.test_client()
-        response = tester.get(f"/images/1?pswdpin={ os.environ.get('password_hs') }", content_type="html/text")
+        response = tester.get(f"/images/1?pswdpin={ os.getenv('password_hs') }", content_type="html/text")
 
         assert response.status_code == 200
         assert b"Images" in response.data
@@ -37,7 +37,7 @@ if 'TEST' not in os.environ:
         tester = app.test_client()
         rv = tester.post(
             "/api/v1.0/images/upload",
-            data={"api_key": os.environ.get("api_key_hs"), "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
+            data={"api_key": os.getenv("api_key_hs"), "api_image": (io.BytesIO(b"abcdef"), 'test.jpg')},
             follow_redirects=True,
         )
 

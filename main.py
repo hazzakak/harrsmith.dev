@@ -72,7 +72,7 @@ def chunks(l, n):
 
 @app.route('/images/<page>', methods=['GET'])
 def view_images(page: int):
-    if request.args.get("pswdpin") != os.environ.get("password_hs"):
+    if request.args.get("pswdpin") != os.getenv("password_hs"):
         return redirect(url_for("index"))
 
     images = Images.query.order_by(Images.created.desc()).paginate(
@@ -91,7 +91,7 @@ def view_images(page: int):
         files_list=files_list,
         paginator=images,
         images=images.items,
-        pswd=os.environ.get("password_hs")
+        pswd=os.getenv("password_hs")
     )
 
 
@@ -106,11 +106,11 @@ def view_image(fn):
 
 @app.route("/api/v1.0/images/upload", methods=["POST"])
 def api_image_upload():
-    print(os.environ.get("password_hs"))
+    print(os.getenv("password_hs"))
     if request.method == "POST":
         image = request.files["api_image"]
         key = request.form.get("api_key")
-        if key == os.environ.get("api_key_hs"):
+        if key == os.getenv("api_key_hs"):
             ext = image.filename.rsplit(".", 1)[1].lower()
             if ext not in [
                 "png",
