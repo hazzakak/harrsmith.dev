@@ -16,10 +16,10 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 if 'PRODUCTION' in os.environ:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
-    app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith/images"
+    app.config["UPLOAD_FOLDER"] = "/var/www/harrysmith/harrysmith/images"
 elif 'TEST' in os.environ:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
-    app.config["UPLOAD_FOLDER"] = "var/www/harrysmith/harrysmith/images"
+    app.config["UPLOAD_FOLDER"] = "/var/www/harrysmith/harrysmith/images"
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
