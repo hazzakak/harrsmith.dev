@@ -14,8 +14,6 @@ import io
 app = Flask(__name__)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-print(os.environ)
-
 if 'PRODUCTION' in os.environ:
     print(1)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
@@ -29,10 +27,7 @@ else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///utils/app.db"
     app.config["UPLOAD_FOLDER"] = dir_path+"\\images"
 
-sys
-
 app.config["MAX_CONTENT_PATH"] = 50 * 1024 * 1024
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/www/harrysmith/harrysmith/utils/app.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
