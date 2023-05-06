@@ -62,6 +62,58 @@ class en(db.Model):
     avgLowTemp = db.Column(db.Float)
     avgHighTemp = db.Column(db.Float)
 
+    janRainfall = db.Column(db.Float)
+    febRainfall = db.Column(db.Float)
+    marRainfall = db.Column(db.Float)
+    aprRainfall = db.Column(db.Float)
+    mayRainfall = db.Column(db.Float)
+    junRainfall = db.Column(db.Float)
+    julRainfall = db.Column(db.Float)
+    augRainfall = db.Column(db.Float)
+    sepRainfall = db.Column(db.Float)
+    octRainfall = db.Column(db.Float)
+    novRainfall = db.Column(db.Float)
+    decRainfall = db.Column(db.Float)
+
+    janSunshine = db.Column(db.Float)
+    febSunshine = db.Column(db.Float)
+    marSunshine = db.Column(db.Float)
+    aprSunshine = db.Column(db.Float)
+    maySunshine = db.Column(db.Float)
+    junSunshine = db.Column(db.Float)
+    julSunshine = db.Column(db.Float)
+    augSunshine = db.Column(db.Float)
+    sepSunshine = db.Column(db.Float)
+    octSunshine = db.Column(db.Float)
+    novSunshine = db.Column(db.Float)
+    decSunshine = db.Column(db.Float)
+
+    janLowTemp = db.Column(db.Float)
+    febLowTemp = db.Column(db.Float)
+    marLowTemp = db.Column(db.Float)
+    aprLowTemp = db.Column(db.Float)
+    mayLowTemp = db.Column(db.Float)
+    junLowTemp = db.Column(db.Float)
+    julLowTemp = db.Column(db.Float)
+    augLowTemp = db.Column(db.Float)
+    sepLowTemp = db.Column(db.Float)
+    octLowTemp = db.Column(db.Float)
+    novLowTemp = db.Column(db.Float)
+    decLowTemp = db.Column(db.Float)
+
+    janHighTemp = db.Column(db.Float)
+    febHighTemp = db.Column(db.Float)
+    marHighTemp = db.Column(db.Float)
+    aprHighTemp = db.Column(db.Float)
+    mayHighTemp = db.Column(db.Float)
+    junHighTemp = db.Column(db.Float)
+    julHighTemp = db.Column(db.Float)
+    augHighTemp = db.Column(db.Float)
+    sepHighTemp = db.Column(db.Float)
+    octHighTemp = db.Column(db.Float)
+    novHighTemp = db.Column(db.Float)
+    decHighTemp = db.Column(db.Float)
+
 class sc(db.Model):
     __bind_key__ = "db"
     year = db.Column('year', db.Integer, primary_key = True)
@@ -77,6 +129,58 @@ class sc(db.Model):
     avgSunshine = db.Column(db.Float)
     avgLowTemp = db.Column(db.Float)
     avgHighTemp = db.Column(db.Float)
+
+    janRainfall = db.Column(db.Float)
+    febRainfall = db.Column(db.Float)
+    marRainfall = db.Column(db.Float)
+    aprRainfall = db.Column(db.Float)
+    mayRainfall = db.Column(db.Float)
+    junRainfall = db.Column(db.Float)
+    julRainfall = db.Column(db.Float)
+    augRainfall = db.Column(db.Float)
+    sepRainfall = db.Column(db.Float)
+    octRainfall = db.Column(db.Float)
+    novRainfall = db.Column(db.Float)
+    decRainfall = db.Column(db.Float)
+
+    janSunshine = db.Column(db.Float)
+    febSunshine = db.Column(db.Float)
+    marSunshine = db.Column(db.Float)
+    aprSunshine = db.Column(db.Float)
+    maySunshine = db.Column(db.Float)
+    junSunshine = db.Column(db.Float)
+    julSunshine = db.Column(db.Float)
+    augSunshine = db.Column(db.Float)
+    sepSunshine = db.Column(db.Float)
+    octSunshine = db.Column(db.Float)
+    novSunshine = db.Column(db.Float)
+    decSunshine = db.Column(db.Float)
+
+    janLowTemp = db.Column(db.Float)
+    febLowTemp = db.Column(db.Float)
+    marLowTemp = db.Column(db.Float)
+    aprLowTemp = db.Column(db.Float)
+    mayLowTemp = db.Column(db.Float)
+    junLowTemp = db.Column(db.Float)
+    julLowTemp = db.Column(db.Float)
+    augLowTemp = db.Column(db.Float)
+    sepLowTemp = db.Column(db.Float)
+    octLowTemp = db.Column(db.Float)
+    novLowTemp = db.Column(db.Float)
+    decLowTemp = db.Column(db.Float)
+
+    janHighTemp = db.Column(db.Float)
+    febHighTemp = db.Column(db.Float)
+    marHighTemp = db.Column(db.Float)
+    aprHighTemp = db.Column(db.Float)
+    mayHighTemp = db.Column(db.Float)
+    junHighTemp = db.Column(db.Float)
+    julHighTemp = db.Column(db.Float)
+    augHighTemp = db.Column(db.Float)
+    sepHighTemp = db.Column(db.Float)
+    octHighTemp = db.Column(db.Float)
+    novHighTemp = db.Column(db.Float)
+    decHighTemp = db.Column(db.Float)
 
 
 class wa(db.Model):
@@ -95,6 +199,58 @@ class wa(db.Model):
     avgLowTemp = db.Column(db.Float)
     avgHighTemp = db.Column(db.Float)
 
+    janRainfall = db.Column(db.Float)
+    febRainfall = db.Column(db.Float)
+    marRainfall = db.Column(db.Float)
+    aprRainfall = db.Column(db.Float)
+    mayRainfall = db.Column(db.Float)
+    junRainfall = db.Column(db.Float)
+    julRainfall = db.Column(db.Float)
+    augRainfall = db.Column(db.Float)
+    sepRainfall = db.Column(db.Float)
+    octRainfall = db.Column(db.Float)
+    novRainfall = db.Column(db.Float)
+    decRainfall = db.Column(db.Float)
+
+    janSunshine = db.Column(db.Float)
+    febSunshine = db.Column(db.Float)
+    marSunshine = db.Column(db.Float)
+    aprSunshine = db.Column(db.Float)
+    maySunshine = db.Column(db.Float)
+    junSunshine = db.Column(db.Float)
+    julSunshine = db.Column(db.Float)
+    augSunshine = db.Column(db.Float)
+    sepSunshine = db.Column(db.Float)
+    octSunshine = db.Column(db.Float)
+    novSunshine = db.Column(db.Float)
+    decSunshine = db.Column(db.Float)
+
+    janLowTemp = db.Column(db.Float)
+    febLowTemp = db.Column(db.Float)
+    marLowTemp = db.Column(db.Float)
+    aprLowTemp = db.Column(db.Float)
+    mayLowTemp = db.Column(db.Float)
+    junLowTemp = db.Column(db.Float)
+    julLowTemp = db.Column(db.Float)
+    augLowTemp = db.Column(db.Float)
+    sepLowTemp = db.Column(db.Float)
+    octLowTemp = db.Column(db.Float)
+    novLowTemp = db.Column(db.Float)
+    decLowTemp = db.Column(db.Float)
+
+    janHighTemp = db.Column(db.Float)
+    febHighTemp = db.Column(db.Float)
+    marHighTemp = db.Column(db.Float)
+    aprHighTemp = db.Column(db.Float)
+    mayHighTemp = db.Column(db.Float)
+    junHighTemp = db.Column(db.Float)
+    julHighTemp = db.Column(db.Float)
+    augHighTemp = db.Column(db.Float)
+    sepHighTemp = db.Column(db.Float)
+    octHighTemp = db.Column(db.Float)
+    novHighTemp = db.Column(db.Float)
+    decHighTemp = db.Column(db.Float)
+
 
 class ni(db.Model):
     __bind_key__ = "db"
@@ -111,6 +267,59 @@ class ni(db.Model):
     avgSunshine = db.Column(db.Float)
     avgLowTemp = db.Column(db.Float)
     avgHighTemp = db.Column(db.Float)
+
+    janRainfall = db.Column(db.Float)
+    febRainfall = db.Column(db.Float)
+    marRainfall = db.Column(db.Float)
+    aprRainfall = db.Column(db.Float)
+    mayRainfall = db.Column(db.Float)
+    junRainfall = db.Column(db.Float)
+    julRainfall = db.Column(db.Float)
+    augRainfall = db.Column(db.Float)
+    sepRainfall = db.Column(db.Float)
+    octRainfall = db.Column(db.Float)
+    novRainfall = db.Column(db.Float)
+    decRainfall = db.Column(db.Float)
+
+    janSunshine = db.Column(db.Float)
+    febSunshine = db.Column(db.Float)
+    marSunshine = db.Column(db.Float)
+    aprSunshine = db.Column(db.Float)
+    maySunshine = db.Column(db.Float)
+    junSunshine = db.Column(db.Float)
+    julSunshine = db.Column(db.Float)
+    augSunshine = db.Column(db.Float)
+    sepSunshine = db.Column(db.Float)
+    octSunshine = db.Column(db.Float)
+    novSunshine = db.Column(db.Float)
+    decSunshine = db.Column(db.Float)
+
+    janLowTemp = db.Column(db.Float)
+    febLowTemp = db.Column(db.Float)
+    marLowTemp = db.Column(db.Float)
+    aprLowTemp = db.Column(db.Float)
+    mayLowTemp = db.Column(db.Float)
+    junLowTemp = db.Column(db.Float)
+    julLowTemp = db.Column(db.Float)
+    augLowTemp = db.Column(db.Float)
+    sepLowTemp = db.Column(db.Float)
+    octLowTemp = db.Column(db.Float)
+    novLowTemp = db.Column(db.Float)
+    decLowTemp = db.Column(db.Float)
+
+    janHighTemp = db.Column(db.Float)
+    febHighTemp = db.Column(db.Float)
+    marHighTemp = db.Column(db.Float)
+    aprHighTemp = db.Column(db.Float)
+    mayHighTemp = db.Column(db.Float)
+    junHighTemp = db.Column(db.Float)
+    julHighTemp = db.Column(db.Float)
+    augHighTemp = db.Column(db.Float)
+    sepHighTemp = db.Column(db.Float)
+    octHighTemp = db.Column(db.Float)
+    novHighTemp = db.Column(db.Float)
+    decHighTemp = db.Column(db.Float)
+
 
 class Images(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -333,6 +542,103 @@ def api_data_year_averages():
             "lowTemp": ni_response.avgLowTemp,
             "highTemp": ni_response.avgHighTemp
         }
+    }
+    return rtn_json
+
+@app.route('/api/data_full_year_values')
+def api_data_full_year_averages():
+    year = int(request.args.get('year'))
+    country = str(request.args.get('country'))
+
+    if year < 1910 or year > 2022:
+        response = app.response_class(
+        response="Year must be between 1910 and 2022",
+        status=400,
+        mimetype='application/json')
+        return response
+    
+    if country not in ['en', 'wa', 'ni', 'sc']:
+        response = app.response_class(
+        response="Country must be en, wa, ni or sc",
+        status=400,
+        mimetype='application/json')
+        return response
+    
+    db_obj = None
+    
+    if country == "en":
+        db_obj = en.query.filter_by(year=year).first()
+    elif country == "sc":
+        db_obj = sc.query.filter_by(year=year).first()
+    elif country == "wa":
+        db_obj = wa.query.filter_by(year=year).first()
+    elif country == "ni":
+        db_obj = ni.query.filter_by(year=year).first()
+
+    rtn_json = {
+        "year": year,
+        "country": country,
+        "rainfall": {
+            "jan": db_obj.janRainfall,
+            "feb": db_obj.febRainfall,
+            "mar": db_obj.marRainfall,
+            "apr": db_obj.aprRainfall,
+            "may": db_obj.mayRainfall,
+            "jun": db_obj.junRainfall,
+            "jul": db_obj.julRainfall,
+            "aug": db_obj.augRainfall,
+            "sep": db_obj.sepRainfall,
+            "oct": db_obj.octRainfall,
+            "nov": db_obj.novRainfall,
+            "dec": db_obj.decRainfall
+        },
+
+        "sunshine": {
+            "jan": db_obj.janSunshine,
+            "feb": db_obj.febSunshine,
+            "mar": db_obj.marSunshine,
+            "apr": db_obj.aprSunshine,
+            "may": db_obj.maySunshine,
+            "jun": db_obj.junSunshine,
+            "jul": db_obj.julSunshine,
+            "aug": db_obj.augSunshine,
+            "sep": db_obj.sepSunshine,
+            "oct": db_obj.octSunshine,
+            "nov": db_obj.novSunshine,
+            "dec": db_obj.decSunshine
+        },
+
+        "highTemp": {
+            "jan": db_obj.janHighTemp,
+            "feb": db_obj.febHighTemp,
+            "mar": db_obj.marHighTemp,
+            "apr": db_obj.aprHighTemp,
+            "may": db_obj.mayHighTemp,
+            "jun": db_obj.junHighTemp,
+            "jul": db_obj.julHighTemp,
+            "aug": db_obj.augHighTemp,
+            "sep": db_obj.sepHighTemp,
+            "oct": db_obj.octHighTemp,
+            "nov": db_obj.novHighTemp,
+            "dec": db_obj.decHighTemp
+        },
+
+        "lowTemp": {
+            "jan": db_obj.janLowTemp,
+            "feb": db_obj.febLowTemp,
+            "mar": db_obj.marLowTemp,
+            "apr": db_obj.aprLowTemp,
+            "may": db_obj.mayLowTemp,
+            "jun": db_obj.junLowTemp,
+            "jul": db_obj.julLowTemp,
+            "aug": db_obj.augLowTemp,
+            "sep": db_obj.sepLowTemp,
+            "oct": db_obj.octLowTemp,
+            "nov": db_obj.novLowTemp,
+            "dec": db_obj.decLowTemp
+        }
+
+        
     }
     return rtn_json
 
