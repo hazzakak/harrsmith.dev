@@ -498,7 +498,9 @@ def api_data_max_values():
             "max_highTemp": ni_response.maxHighTemp
         }
     }
-    return rtn_json
+    resp = flask.jsonify(rtn_json)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    return resp
 
 @app.route('/api/data_year_averages')
 def api_data_year_averages():
@@ -543,7 +545,9 @@ def api_data_year_averages():
             "highTemp": ni_response.avgHighTemp
         }
     }
-    return rtn_json
+    resp = flask.jsonify(rtn_json)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    return resp
 
 @app.route('/api/data_full_year_values')
 def api_data_full_year_averages():
@@ -640,7 +644,9 @@ def api_data_full_year_averages():
 
         
     }
-    return rtn_json
+    resp = flask.jsonify(rtn_json)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    return resp
 
 
 if __name__ == '__main__':
