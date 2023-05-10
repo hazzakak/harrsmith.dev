@@ -8,7 +8,6 @@ import flask
 from flask_sqlalchemy import SQLAlchemy
 import sys
 
-import pandas as pd
 import requests
 import io
 
