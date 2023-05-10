@@ -4,6 +4,7 @@ import os
 import random
 import string
 from flask import Flask, redirect, render_template, request, send_file, url_for, Response
+import flask
 from flask_sqlalchemy import SQLAlchemy
 import sys
 
@@ -498,9 +499,9 @@ def api_data_max_values():
             "max_highTemp": ni_response.maxHighTemp
         }
     }
-    resp = flask.jsonify(rtn_json)
-    resp.headers.add('Access-Control-Allow-Origin', '*')
-    return resp
+    return Response(
+                response=flask.jsonify(rtn_json), status=200, mimetype="application/json"
+            )
 
 @app.route('/api/data_year_averages')
 def api_data_year_averages():
@@ -545,9 +546,9 @@ def api_data_year_averages():
             "highTemp": ni_response.avgHighTemp
         }
     }
-    resp = flask.jsonify(rtn_json)
-    resp.headers.add('Access-Control-Allow-Origin', '*')
-    return resp
+    return Response(
+                response=flask.jsonify(rtn_json), status=200, mimetype="application/json"
+            )
 
 @app.route('/api/data_full_year_values')
 def api_data_full_year_averages():
@@ -644,10 +645,9 @@ def api_data_full_year_averages():
 
         
     }
-    resp = flask.jsonify(rtn_json)
-    resp.headers.add('Access-Control-Allow-Origin', '*')
-    return resp
-
+    return Response(
+                response=flask.jsonify(rtn_json), status=200, mimetype="application/json"
+            )
 
 if __name__ == '__main__':
     db.create_all()
