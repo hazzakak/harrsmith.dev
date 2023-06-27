@@ -57,9 +57,10 @@ def filename():
 @app.route('/index')
 @app.route('/home')
 def index():
-    with open('var/www/harrysmith/harrysmith/projects.json') as f:
-        data = json.load(f)
-        return render_template('index.html', projects=data)
+     resp = requests.get("https://raw.githubusercontent.com/hazzakak/harrsmith.dev/master/projects.json")
+    data = json.loads(resp.text)
+
+    return render_template('index.html', projects=data)
 
 
 def chunks(l, n):
